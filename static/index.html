@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pre-Share Match Check</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <div id="login-view" class="login-wrap" hidden>
+    <form id="login-form" class="card login-card" autocomplete="on">
+      <h1>Pre-Share Match Check</h1>
+      <p class="muted">Catch deal-breakers before a profile reaches the client.</p>
+      <label>Email <input id="login-email" type="email" required maxlength="254" autocomplete="username"></label>
+      <label>Password <input id="login-password" type="password" required maxlength="128" autocomplete="current-password"></label>
+      <button type="submit" class="primary">Sign in</button>
+      <p id="login-error" class="error" hidden></p>
+      <div class="demo">
+        <p class="muted small">Demo accounts (local mock data)</p>
+        <div id="demo-buttons" class="demo-buttons"></div>
+      </div>
+    </form>
+  </div>
+
+  <div id="app-view" hidden>
+    <header class="topbar">
+      <div class="brand">Pre-Share Match Check</div>
+      <nav id="tabs" class="tabs">
+        <button data-tab="match" class="tab active">Match</button>
+        <button data-tab="insights" class="tab">Insights</button>
+        <button data-tab="audit" class="tab" id="audit-tab" hidden>Audit log</button>
+      </nav>
+      <div class="who"><span id="who"></span> <button id="logout" class="ghost">Sign out</button></div>
+    </header>
+
+    <main>
+      <section id="tab-match" class="tab-panel">
+        <aside class="clients">
+          <h2>Clients</h2>
+          <p id="scope-note" class="muted small"></p>
+          <ul id="client-list"></ul>
+        </aside>
+        <div id="client-detail" class="detail">
+          <p class="muted">Select a client.</p>
+        </div>
+      </section>
+
+      <section id="tab-insights" class="tab-panel" hidden>
+        <div id="insights"></div>
+      </section>
+
+      <section id="tab-audit" class="tab-panel" hidden>
+        <div id="audit"></div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
